@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args)
+	{
+	    Scanner scanner = new Scanner(System.in);
+        int rotate=0;
+        int N = scanner.nextInt();
+        while (N>0)
+        {
+	        rotate=rotate*10+N%10;
+	        N=N/10;
+        }
+		System.out.println(rotate);
+	}
+}
