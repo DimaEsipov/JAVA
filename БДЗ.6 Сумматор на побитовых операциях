@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner scanner = new Scanner(System.in);
+		int a = stringToInt(scanner.next());
+		int b = stringToInt(scanner.next());
+		while (b != 0)
+		{
+			int sum = a ^ b;
+			b = (a & b) << 1;
+			a = sum;
+		}
+		System.out.println(a);
+	}
+	private static int stringToInt(String str)
+	{
+		int num = 0;
+		int s = 1;
+		if (str.charAt(0) == '-')
+		{
+			s = -1;
+			str = str.substring(1);
+		}
+		for (char c : str.toCharArray())
+			num = num * 10 + (c - '0');
+		return num * s;
+	}
+}
