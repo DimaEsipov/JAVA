@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner scanner = new Scanner(System.in);
+		String str1 = scanner.nextLine().replaceAll(" ", "").toLowerCase();
+		String str2 = scanner.nextLine().replaceAll(" ", "").toLowerCase();
+		if (str1.length() != str2.length())
+			System.out.println("No");
+		int[] ch = new int[26];
+		for (int i = 0; i < str1.length(); i++)
+		{
+			ch[str1.charAt(i) - 'a']++;
+			ch[str2.charAt(i) - 'a']--;
+		}
+		boolean x = true;
+		for (int c : ch)
+			if (c != 0)
+				x = false;
+		System.out.println(x ? "Yes" : "No");
+	}
+}
